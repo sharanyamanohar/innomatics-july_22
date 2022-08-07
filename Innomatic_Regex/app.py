@@ -11,7 +11,12 @@ def index():
 def search_function():
     name = request.args["in_1"]
     regex = request.args["in_2"]
-    return render_template('search.html',n=name,r=regex)
+    count=0
+    for i in name:
+        if i in regex:
+            count +=1
+
+    return render_template('search.html',n=name,c=count)
 
 
 
